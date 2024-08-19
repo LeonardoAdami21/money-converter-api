@@ -1,21 +1,39 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-        "title": "Money Converter API",
-        "description": "Conversor de dinheiro Real para Dolar",
-        "version": "1.0.0"
-    },
-    "tags": [
-        {
-            "name": "Money Converter API",
-            "description": "Conversor de dinheiro Real para Dolar"
-        }
-    ],
-    "paths": {
-        "/convert": {
-            "post": {
-                
-            }
-        }
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Money Converter API",
+    "description": "Conversor de dinheiro Real para Dolar",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "Money Converter API",
+      "description": "Conversor de dinheiro Real para Dolar"
     }
+  ],
+  "paths": {
+    "/convert": {
+      "get": {
+        "tags": ["Money Converter API"],
+        "summary": "Converte dinheiro Real para Dolar",
+        "operationId": "convert",
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "description": "Valor em Real",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
 }
