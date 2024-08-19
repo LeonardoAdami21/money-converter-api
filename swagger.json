@@ -1,0 +1,21 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Money Converter API",
+        "description": "Conversor de dinheiro Real para Dolar",
+        "version": "1.0.0"
+    },
+    "tags": [
+        {
+            "name": "Money Converter API",
+            "description": "Conversor de dinheiro Real para Dolar"
+        }
+    ],
+    "paths": {
+        "/convert": {
+            "post": {
+                
+            }
+        }
+    }
+}
