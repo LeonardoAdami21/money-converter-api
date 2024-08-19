@@ -1,0 +1,9 @@
+{
+  "name": "money-converter-api",
+  "version": "1.0.0",
+  "description": "Conversor de dinheiro Real para Dolar",
+  "main": "server.js",
+  "author": "Leonardo Adami",
+  "license": "MIT",
+  "private": false
+}
