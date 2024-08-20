@@ -1,21 +1,149 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-        "title": "Money Converter API",
-        "description": "Conversor de dinheiro Real para Dolar",
-        "version": "1.0.0"
-    },
-    "tags": [
-        {
-            "name": "Money Converter API",
-            "description": "Conversor de dinheiro Real para Dolar"
-        }
-    ],
-    "paths": {
-        "/convert": {
-            "post": {
-                
-            }
-        }
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Money Converter API",
+    "description": "Conversor de dinheiro Real para Dolar",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "Money Converter API",
+      "description": "Conversor de dinheiro Real para Dolar"
     }
+  ],
+  "paths": {
+    "/convert": {
+      "get": {
+        "tags": ["Money Converter API"],
+        "summary": "Converte dinheiro Real para Dolar",
+        "responses": {
+          "200": {
+            "description": "Return all currencies"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Money Converter API"],
+        "summary": "Converte dinheiro Real para Dolar",
+        "description": "Converte dinheiro Real para Dolar",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCurrency"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/convert/{code}": {
+      "get": {
+        "tags": ["Money Converter API"],
+        "summary": "Converte dinheiro Real para Dolar",
+        "description": "Converte dinheiro Real para Dolar",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return one currency"
+          },
+          "404": {
+            "description": "Currency not found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Money Converter API"],
+        "summary": "Converte dinheiro Real para Dolar",
+        "description": "Converte dinheiro Real para Dolar",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed one currency successfully."
+          },
+          "404": {
+            "description": "Currency not found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RequestCurrency": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "USD"
+          },
+          "name": {
+            "type": "string",
+            "example": "United States Dollar"
+          },
+          "type": {
+            "type": "string",
+            "example": "fiat"
+          },
+          "conversionRate": {
+            "type": "object",
+            "properties": {
+              "rate": {
+                "type": "number",
+                "example": 5.0
+              },
+              "base": {
+                "type": "string",
+                "example": "USD"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
